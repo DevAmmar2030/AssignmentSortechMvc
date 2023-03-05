@@ -1,0 +1,23 @@
+﻿@using AssignmentSortechMvc.Dto;
+@model EventDto
+@{
+    ViewData["Title"] = "GetEventById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetEventById</h1>
+
+<div class="col-6">
+    <div style="margin:30px" class="row">
+        <a>
+            <div>
+                <p>@Model.Summary</p>
+                <p>@Model.Description</p>
+                <p>@Model.StartDateTime</p>
+                <p>@Model.EndDateTime</p>
+            </div>
+            <a class="col-4 btn btn-danger" href="@Url.Action("DeleteEvent", "CalendarEvent", new { idEvent =  Model.Id })">Delete</a>
+        </a>
+    </div>
+</div>
+

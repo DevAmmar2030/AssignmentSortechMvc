@@ -1,0 +1,24 @@
+﻿@using AssignmentSortechMvc.Dto;
+@model List<EventDto>
+@{
+    ViewData["Title"] = "GetAllEvent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetAllEvent</h1>
+
+<div class="col-6">
+    @foreach (var item in Model)
+    {
+        <div style="margin:30px" class="row">
+            <a class="col-3 btn btn-info" href="@Url.Action("GetEventById", "CalendarEvent", new { idEvent =  item.Id })">Show</a>
+                <div>
+                    <p>@item.Summary</p>
+                    <p>@item.Description</p>
+                    <p>@item.StartDateTime</p>
+                    <p>@item.EndDateTime</p>
+                </div>
+        </div>
+    }
+</div>
+

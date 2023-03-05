@@ -1,0 +1,34 @@
+﻿@model AssignmentSortechMvc.Dto.EventDto;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-left">
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("OauthRedirect","Oauth")'">Sign In</button>
+    <button class="btn btn-outline-dark" onclick="location.href='@Url.Action("RefreshToken","Oauth")'">Refresh Token </button>
+    <button class="btn btn-outline-danger" onclick="location.href='@Url.Action("RemoveToken","Oauth")'">Remove Token</button>
+</div>
+<br />
+<br />
+
+<a type="submit" asp-action="GetAllEvent" asp-controller="CalendarEvent">Get All Events</a>
+<br />
+<form class="col-4" asp-action="CreateEvent" asp-controller="CalendarEvent" method="post">
+    <div class="mb-3">
+        <label for="EventTitle" class="form-label">Event Title</label>
+        <input type="text" class="form-control" id="EventTitle" asp-for="Summary" >
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">Description </label>
+        <input type="text" class="form-control" id="Description" asp-for="Description">
+    </div>
+    <div class="mb-3">
+        <label for="Start.DateTime" class="form-label">Start Date</label>
+        <input type="datetime-local" class="form-control" id="Start.DateTime" asp-for="StartDateTime">
+    </div>
+    <div class="mb-3">
+        <label for="End.DateTime" class="form-label">End Date</label>
+        <input type="datetime-local" class="form-control" id="End.DateTime" asp-for="EndDateTime">
+    </div>
+    <button type="submit" class="btn btn-primary">Create Event</button>
+</form>
